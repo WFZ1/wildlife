@@ -6,14 +6,39 @@
 
 /* COLORS ================================================================================ */
 
-//$text-color: ;
-//$title-color: ;
-//$link-color: ;
-//$link-color-hover: lighten($link-color, 25%);
-//$background: ;
-//$border-color: ;
+$text-color: #f7f7f7;
+$accent-color: #cd6326;
+
+$title-primary-color: $accent-color;
+$title-secondary-color: #333;
+$subtitle-color: #666;
+
+$btn-color: $text-color;
+$btn-bg: $accent-color;
+$btn-bg-hover: #e39128;
+$btn-bg-pressed: #8f5613;
+
+$link-color: $text-color;
+$link-border-color: $accent-color;
+$link-bg-hover: $accent-color;
+$link-bg-pressed: #8f5613;
+
+$nav-item-color-hover: $accent-color;
+$nav-item-color-pressed: #8f5613;
+
+$section-hero-bg: #02160b;
+$content-bg: #ccc;
+$footer-bg: #181617;
+
+$field-border-color: #666;
+$field-placeholder-color: #666;
+
+$flickity-arrow-color: #666;
 
 /* VIEWPORT ================================================================================ */
+
+$wrapper: 1440px;
+$container: 1200px;
 
 $min: min-width;
 $max: max-width;
@@ -26,8 +51,16 @@ $widescreen:  1440px;
 
 /* TYPOGRAPHY ================================================================================ */
 
-//$font-main: ;
-//$font-extra: ;
+$font-main: "Open Sans", sans-serif;
+$font-extra: Roboto, sans-serif;
 
-$text-size: 16;
-$text-font-size: $text-size + px;
+$text-font-size: 16;
+$default-text-font-size: $text-font-size + px;
+
+$title-font-size: 48;
+$subtitle-font-size: 24;
+$text-font-size: 18;
+
+$btn-font-size: 23;
+$field-font-size: 23;
+$nav-item-font-size: 23;

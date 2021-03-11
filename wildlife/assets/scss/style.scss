@@ -1,0 +1,72 @@
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "reset";
+
+/**
+ * ----------------------------------------------------------------------------
+ *  BASE
+ * ----------------------------------------------------------------------------
+ */
+
+* { box-sizing: border-box; }
+
+html {
+  font-family: $font-main;
+  color: $text-color;
+  font-size: $default-text-font-size;
+}
+
+h2 { font-size: rem($title-font-size, $text-font-size); }
+
+h3 {
+  font-size: rem($subtitle-font-size, $text-font-size);
+  color: $subtitle-color;
+}
+
+button,
+.link {
+  font-family: $font-extra;
+  font-size: rem($btn-font-size, $text-font-size);
+  transition: background-color .3s;
+}
+
+button {
+  padding: em(15, $text-font-size);
+  background-color: $btn-bg;
+  color: $btn-color;
+  border-radius: 5px;
+
+  &:hover { background-color: $btn-bg-hover; }
+  &:active { background-color: $btn-bg-pressed; }
+}
+
+.link {
+  border: 2px solid $link-border-color;
+  border-radius: 5px;
+  color: $link-color;
+
+  &:hover { background-color: $link-bg-hover; }
+  &:active { background-color: $link-bg-pressed; }
+}
+
+input {
+  padding: em(12, $text-font-size) em(10, $text-font-size);
+  font-size: rem($field-font-size, $text-font-size);
+  border: 1px solid $field-border-color;
+
+  &::placeholder { color: $field-placeholder-color; }
+}
+
+nav a {
+  font-size: rem($nav-item-font-size, $text-font-size);
+  
+  &:hover { color: $nav-item-color-hover; }
+  &:active { color: $nav-item-color-pressed; }
+}
+
+/**
+* ----------------------------------------------------------------------------
+*  CONTENT
+* ----------------------------------------------------------------------------
+*/

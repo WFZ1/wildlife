@@ -1,0 +1,207 @@
+/**
+ * --------------------------------------------------------------------------------
+ *  VARIABLES
+ * --------------------------------------------------------------------------------
+ */
+/* COLORS ================================================================================ */
+/* VIEWPORT ================================================================================ */
+/* TYPOGRAPHY ================================================================================ */
+/**
+ * ----------------------------------------------------------------------------
+ *  MIXINS
+ * ----------------------------------------------------------------------------
+ */
+/* BREAKPOINTS ================================================================================ */
+/* PX TO EM ================================================================================ */
+/* PX TO REM ================================================================================ */
+/**
+ * --------------------------------------------------------------------------------
+ *  FONTS
+ * --------------------------------------------------------------------------------
+ */
+/* OPEN SANS ================================================================================ */
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ROBOTO ================================================================================ */
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  RESET
+ * ----------------------------------------------------------------------------
+ */
+body {
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+img,
+svg {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  BASE
+ * ----------------------------------------------------------------------------
+ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+  color: #f7f7f7;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 2.66667rem;
+}
+
+h3 {
+  font-size: 1.33333rem;
+  color: #666;
+}
+
+button,
+.link {
+  font-family: Roboto, sans-serif;
+  font-size: 1.27778rem;
+  transition: background-color .3s;
+}
+
+button {
+  padding: 0.83333em;
+  background-color: #cd6326;
+  color: #f7f7f7;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #e39128;
+}
+
+button:active {
+  background-color: #8f5613;
+}
+
+.link {
+  border: 2px solid #cd6326;
+  border-radius: 5px;
+  color: #f7f7f7;
+}
+
+.link:hover {
+  background-color: #cd6326;
+}
+
+.link:active {
+  background-color: #8f5613;
+}
+
+input {
+  padding: 0.66667em 0.55556em;
+  font-size: 1.27778rem;
+  border: 1px solid #666;
+}
+
+input::placeholder {
+  color: #666;
+}
+
+nav a {
+  font-size: 1.27778rem;
+}
+
+nav a:hover {
+  color: #cd6326;
+}
+
+nav a:active {
+  color: #8f5613;
+}
+
+/**
+* ----------------------------------------------------------------------------
+*  CONTENT
+* ----------------------------------------------------------------------------
+*/
