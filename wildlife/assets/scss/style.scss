@@ -21,6 +21,15 @@ header {
   min-width: rem(320, $text-size);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
 h2 { font-size: rem($title-font-size, $text-size); }
 
 h3 {
@@ -39,11 +48,12 @@ button,
 }
 
 button {
-  padding: em(15, $btn-font-size);
+  padding: em(15, $btn-font-size) em(25, $btn-font-size);
   background-color: $btn-bg;
   color: $btn-color;
   border-radius: 5px;
   transition: $trans-bg;
+  cursor: pointer;
 
   &:hover { background-color: $btn-bg-hover; }
   &:active { background-color: $btn-bg-pressed; }
@@ -190,8 +200,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
   padding: rem(2.5, $text-size) rem(10, $text-size) rem(10, $text-size);
-  background: #ccc;
 
   @include at ($min, $tablet) {
     padding: rem(20, $text-size);
@@ -227,7 +237,7 @@ header {
     transition: $trans-fill;
 
     @include at ($max, $tablet - 1) {
-      width: 50px;
+      width: rem(50, $text-size);
     }
 
     @include at ($min, $phone + 1) {
@@ -261,10 +271,10 @@ header nav {
   }
 
   li {
-    margin: 0 rem(10, $text-size);
+    margin: 0 em(10, $nav-item-font-size);
 
     @include at ($min, $tablet) {
-      margin: 0 rem(30, $text-size);
+      margin: 0 em(30, $nav-item-font-size);
     }
   }
 }
@@ -289,5 +299,71 @@ header nav {
 
   .search-link:hover & {
     fill: $accent-color;
+  }
+}
+
+/**
+* ----------------------------------------------------------------------------
+*  SECTION: HERO
+* ----------------------------------------------------------------------------
+*/
+
+.hero {
+  position: relative;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    min-height: rem(550, $text-size);
+    max-height: 100vh;
+  }
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+
+  @include at ($max, $tablet - 1) {
+    background: rgba(0,0,0,.4);
+  }
+}
+
+.hero-block {
+  max-width: rem(315, $text-size);
+  padding: rem(20, $text-size);
+  position: relative;
+
+  @include at ($max, $container + 39px) {
+    position: relative;
+    top: rem(20, $text-size);
+  }
+
+  @include at ($min, $container + 40px) {
+    left: -20px;
+  }
+
+  h2 {
+    color: $accent-color;
+    letter-spacing: em(2, $title-font-size);
+  }
+
+  p {
+    $el-font-size: 18;
+
+    margin-bottom: em(50, $el-font-size);
+    font-size: rem($el-font-size, $text-size);
+    line-height: em(27, $el-font-size);
+  }
+
+  button {
+    @include at ($min, $tablet) {
+      min-width: em(160, $btn-font-size);
+      min-height: em(60, $btn-font-size);
+    }
   }
 }

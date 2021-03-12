@@ -96,6 +96,15 @@ body {
   margin: 0;
 }
 
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
 p {
   margin-top: 0;
 }
@@ -120,6 +129,10 @@ ul {
   list-style: none;
 }
 
+button {
+  border: 0;
+}
+
 /**
  * ----------------------------------------------------------------------------
  *  BASE
@@ -137,6 +150,15 @@ html {
 
 header {
   min-width: 20rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
 }
 
 h2 {
@@ -162,11 +184,12 @@ button,
 }
 
 button {
-  padding: 0.65217em;
+  padding: 0.65217em 1.08696em;
   background-color: #cd6326;
   color: #f7f7f7;
   border-radius: 5px;
   transition: background-color 0.5s;
+  cursor: pointer;
 }
 
 button:hover {
@@ -336,8 +359,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
   padding: 0.15625rem 0.625rem 0.625rem;
-  background: #ccc;
 }
 
 @media screen and (min-width: 768px) {
@@ -378,7 +401,7 @@ header {
 
 @media screen and (max-width: 767px) {
   .logo-block svg {
-    width: 50px;
+    width: 3.125rem;
   }
 }
 
@@ -418,12 +441,12 @@ header nav .row {
 }
 
 header nav li {
-  margin: 0 0.625rem;
+  margin: 0 0.43478em;
 }
 
 @media screen and (min-width: 768px) {
   header nav li {
-    margin: 0 1.875rem;
+    margin: 0 1.30435em;
   }
 }
 
@@ -450,4 +473,73 @@ header nav li {
 
 .search-link:hover .icon-search {
   fill: #cd6326;
+}
+
+/**
+* ----------------------------------------------------------------------------
+*  SECTION: HERO
+* ----------------------------------------------------------------------------
+*/
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  object-fit: cover;
+  min-height: 34.375rem;
+  max-height: 100vh;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .hero-content {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.hero-block {
+  max-width: 19.6875rem;
+  padding: 1.25rem;
+  position: relative;
+}
+
+@media screen and (max-width: 1239px) {
+  .hero-block {
+    position: relative;
+    top: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .hero-block {
+    left: -20px;
+  }
+}
+
+.hero-block h2 {
+  color: #cd6326;
+  letter-spacing: 0.04167em;
+}
+
+.hero-block p {
+  margin-bottom: 2.77778em;
+  font-size: 1.125rem;
+  line-height: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-block button {
+    min-width: 6.95652em;
+    min-height: 2.6087em;
+  }
 }
