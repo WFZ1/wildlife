@@ -17,56 +17,277 @@ html {
   font-size: $default-text-font-size;
 }
 
-h2 { font-size: rem($title-font-size, $text-font-size); }
+header {
+  min-width: rem(320, $text-size);
+}
+
+h2 { font-size: rem($title-font-size, $text-size); }
 
 h3 {
-  font-size: rem($subtitle-font-size, $text-font-size);
+  font-size: rem($subtitle-font-size, $text-size);
   color: $subtitle-color;
 }
 
 button,
 .link {
   font-family: $font-extra;
-  font-size: rem($btn-font-size, $text-font-size);
-  transition: background-color .3s;
+  font-size: rem($btn-font-size / 1.2, $text-size);
+
+  @include at ($min, $tablet) {
+    font-size: rem($btn-font-size, $text-size);
+  }
 }
 
 button {
-  padding: em(15, $text-font-size);
+  padding: em(15, $btn-font-size);
   background-color: $btn-bg;
   color: $btn-color;
   border-radius: 5px;
+  transition: $trans-bg;
 
   &:hover { background-color: $btn-bg-hover; }
   &:active { background-color: $btn-bg-pressed; }
 }
 
+a {
+  color: $text-color;
+  transition: $trans-color;
+}
+
+%inline-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .link {
+  @extend %inline-box;
+
+  padding: em(9, $btn-font-size) em(15, $btn-font-size);
   border: 2px solid $link-border-color;
   border-radius: 5px;
   color: $link-color;
+  transition: $trans-border-box;
+
+  @include at ($min, $tablet) {
+    min-height: em(50, $btn-font-size);
+    min-width: em(120, $btn-font-size);
+  }
 
   &:hover { background-color: $link-bg-hover; }
-  &:active { background-color: $link-bg-pressed; }
+
+  &:active { 
+    border-color: $link-border-pressed;
+    background-color: $link-bg-pressed;
+  }
 }
 
 input {
-  padding: em(12, $text-font-size) em(10, $text-font-size);
-  font-size: rem($field-font-size, $text-font-size);
+  padding: em(12, $text-size) em(10, $text-size);
+  font-size: rem($field-font-size, $text-size);
   border: 1px solid $field-border-color;
 
   &::placeholder { color: $field-placeholder-color; }
 }
 
 nav a {
-  font-size: rem($nav-item-font-size, $text-font-size);
+  font-size: rem($nav-item-font-size / 1.2, $text-size);
+
+  @include at ($min, $tablet) {
+    font-size: rem($nav-item-font-size, $text-size);
+  }
   
   &:hover { color: $nav-item-color-hover; }
   &:active { color: $nav-item-color-pressed; }
 }
 
+.wrapper,
+.container {
+  margin: auto;
+}
+
+.wrapper { max-width: rem($wrapper, $text-size); }
+.container { max-width: rem($container, $text-size); }
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.list li {
+  &:first-child { margin-left: 0; }
+  &:last-child { margin-right: 0; }
+}
+
+@include at($max, $phone) {
+  .hidden-phone {
+    display: $hidden;
+  }
+}
+
+@include at($min, $phone + 1) {
+  .hidden-phone-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $tablet) {
+  .hidden-tablet {
+    display: $hidden;
+  }
+}
+
+@include at($min, $tablet + 1) {
+  .hidden-tablet-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $lap) {
+  .hidden-lap {
+    display: $hidden;
+  }
+}
+
+@include at($min, $lap + 1) {
+  .hidden-lap-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $desk) {
+  .hidden-desk {
+    display: $hidden;
+  }
+}
+
+@include at($min, $desk + 1) {
+  .hidden-desk-and-up {
+    display: $hidden;
+  }
+}
+
+@include at($max, $widescreen) {
+  .hidden-wide {
+    display: $hidden;
+  }
+}
+
+@include at($min, $widescreen + 1) {
+  .hidden-wide-and-up {
+    display: $hidden;
+  }
+}
+
 /**
 * ----------------------------------------------------------------------------
-*  CONTENT
+*  HEADER
 * ----------------------------------------------------------------------------
 */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: rem(2.5, $text-size) rem(10, $text-size) rem(10, $text-size);
+  background: #ccc;
+
+  @include at ($min, $tablet) {
+    padding: rem(20, $text-size);
+  }
+
+  .row {
+    @include at ($max, $tablet - 1) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.logo-block {
+  margin-right: rem(10, $text-size);
+
+  @include at ($min, $tablet) {
+    margin-right: rem(30, $text-size);
+  }
+
+  &:hover {
+    svg {
+      fill: $accent-color;
+    }
+
+    span {
+      color: $accent-color;
+    }
+  }
+
+  svg {
+    fill: #fff;
+    transition: $trans-fill;
+
+    @include at ($max, $tablet - 1) {
+      width: 50px;
+    }
+
+    @include at ($min, $phone + 1) {
+      margin-right: rem(15, $text-size)
+    }
+  }
+
+  span {
+    font-size: rem(32, $text-size);
+    font-family: $font-extra;
+    text-transform: uppercase;
+    transition: $trans-color;
+  }
+}
+
+header nav {
+  margin-left: auto;
+
+  @include at ($max, $tablet - 1) {
+    order: 1;
+    flex: 1 0 100%;
+    margin-top: rem(5, $text-size);
+  }
+
+  @include at ($min, $tablet) {
+    margin-right: rem(60, $text-size);
+  }
+
+  .row {
+    justify-content: center;
+  }
+
+  li {
+    margin: 0 rem(10, $text-size);
+
+    @include at ($min, $tablet) {
+      margin: 0 rem(30, $text-size);
+    }
+  }
+}
+
+.header-action-list {
+  @include at ($max, $tablet - 1) {
+    margin-left: auto;
+  }
+
+  li {
+    margin: 0 rem(10, $text-size);
+    
+    @include at ($min, $tablet) {
+      margin: 0 rem(30, $text-size);
+    }
+  }
+}
+
+.icon-search {
+  fill: #fff;
+  transition: $trans-fill;
+
+  .search-link:hover & {
+    fill: $accent-color;
+  }
+}
