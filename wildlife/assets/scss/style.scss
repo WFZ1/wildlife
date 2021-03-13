@@ -39,6 +39,11 @@ h6 {
 h2 { font-size: rem($title-font-size, $text-size); }
 
 h3 {
+  font-size: rem($title-secondary-font-size, $text-size);
+  color: $title-secondary-color;
+}
+
+.subtitle {
   font-size: rem($subtitle-font-size, $text-size);
   color: $subtitle-color;
 }
@@ -98,10 +103,14 @@ a {
   }
 }
 
-input {
-  padding: em(12, $text-size) em(10, $text-size);
-  font-size: rem($field-font-size, $text-size);
+input[type=email] {
+  width: 100%;
+  padding: em(15, $field-font-size);
+  background-color: transparent;
+  color: $field-placeholder-color;
   border: 1px solid $field-border-color;
+  font-family: $font-extra;
+  font-size: rem($field-font-size, $text-size);
 
   &::placeholder { color: $field-placeholder-color; }
 }
@@ -408,7 +417,7 @@ header nav {
     color: $title-secondary-color;
   }
 
-  h3 {
+  .subtitle {
     margin-bottom: rem(50, $text-size);
     text-align: center;
 
@@ -514,6 +523,49 @@ header nav {
   .flickity-page-dots {
     @include at ($min, $desk) {
       display: none;
+    }
+  }
+}
+
+/**
+* ----------------------------------------------------------------------------
+*  SECTION: ARTICLES
+* ----------------------------------------------------------------------------
+*/
+
+.newsletter {
+  max-width: 700px;
+  margin: rem(100, $text-size) auto;
+  padding: 0 rem(20, $text-size);
+
+  @include at ($min, $lap) {
+    margin: rem(240, $text-size) auto;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: em(60, $title-secondary-font-size);
+  }
+
+  form {
+    display: flex;
+  }
+
+  input[type=email] {
+    border-right: 0;
+    border-radius: 2px 0 0 2px;
+
+    @include at ($min, $tablet) {
+      min-height: em(60, $field-font-size);
+    }
+  }
+
+  input[type=submit] {
+    border-radius: 0 5px 5px 0;
+
+    @include at ($min, $tablet) {
+      min-height: em(60, $btn-font-size);
+      flex-basis: em(120, $btn-font-size);
     }
   }
 }

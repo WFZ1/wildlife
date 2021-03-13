@@ -133,6 +133,10 @@ button {
   border: 0;
 }
 
+input[type=submit] {
+  border: 0;
+}
+
 /**
  * ----------------------------------------------------------------------------
  *  BASE
@@ -172,6 +176,11 @@ h2 {
 }
 
 h3 {
+  font-size: 1.6875rem;
+  color: #333;
+}
+
+.subtitle {
   font-size: 1.5rem;
   color: #666;
 }
@@ -241,13 +250,17 @@ a {
   background-color: #8f5613;
 }
 
-input {
-  padding: 0.75em 0.625em;
-  font-size: 1.4375rem;
+input[type=email] {
+  width: 100%;
+  padding: 0.65217em;
+  background-color: transparent;
+  color: #666;
   border: 1px solid #666;
+  font-family: Roboto, sans-serif;
+  font-size: 1.4375rem;
 }
 
-input::placeholder {
+input[type=email]::placeholder {
   color: #666;
 }
 
@@ -590,13 +603,13 @@ header nav li {
   color: #333;
 }
 
-.articles-section h3 {
+.articles-section .subtitle {
   margin-bottom: 3.125rem;
   text-align: center;
 }
 
 @media screen and (min-width: 1024px) {
-  .articles-section h3 {
+  .articles-section .subtitle {
     margin-bottom: 7.5rem;
   }
 }
@@ -719,5 +732,53 @@ header nav li {
 @media screen and (min-width: 1280px) {
   .articles-carousel .flickity-page-dots {
     display: none;
+  }
+}
+
+/**
+* ----------------------------------------------------------------------------
+*  SECTION: ARTICLES
+* ----------------------------------------------------------------------------
+*/
+.newsletter {
+  max-width: 700px;
+  margin: 6.25rem auto;
+  padding: 0 1.25rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .newsletter {
+    margin: 15rem auto;
+  }
+}
+
+.newsletter h3 {
+  text-align: center;
+  margin-bottom: 2.22222em;
+}
+
+.newsletter form {
+  display: flex;
+}
+
+.newsletter input[type=email] {
+  border-right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+@media screen and (min-width: 768px) {
+  .newsletter input[type=email] {
+    min-height: 2.6087em;
+  }
+}
+
+.newsletter input[type=submit] {
+  border-radius: 0 5px 5px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .newsletter input[type=submit] {
+    min-height: 2.6087em;
+    flex-basis: 5.21739em;
   }
 }
