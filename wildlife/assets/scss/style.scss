@@ -17,8 +17,14 @@ html {
   font-size: $default-text-font-size;
 }
 
-header {
+header,
+main,
+footer {
   min-width: rem(320, $text-size);
+}
+
+main {
+  background-color: $content-bg;
 }
 
 h1,
@@ -37,7 +43,7 @@ h3 {
   color: $subtitle-color;
 }
 
-button,
+.btn,
 .link {
   font-family: $font-extra;
   font-size: rem($btn-font-size / 1.2, $text-size);
@@ -47,7 +53,7 @@ button,
   }
 }
 
-button {
+.btn {
   padding: em(15, $btn-font-size) em(25, $btn-font-size);
   background-color: $btn-bg;
   color: $btn-color;
@@ -189,6 +195,18 @@ nav a {
   }
 }
 
+/* FLICKITY CAROUSEL ================================================================================ */
+
+.flickity-prev-next-button {
+  padding: 0;
+  width: rem(26, $text-size) !important;
+  height: rem(39, $text-size) !important;
+  background: url(data:png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAnCAMAAAAmcKiPAAAASFBMVEUAAABgYGBwcHBgYGBoaGhgYGBlZWVkZGRmZmZlZWVlZWVkZGRmZmZkZGRmZmZmZmZlZWVkZGRmZmZnZ2dmZmZmZmZlZWVmZmYifFUVAAAAF3RSTlMAEBAgIDAwQF9gb39/gICPn6Cvv8/f71KNoBYAAACASURBVDjL5ZNJEoNACAAxQ4yaxXWm///TXDCVcsAHJFy7KJpNxAldy1Pc0Ay4rM0ATDXpCwDkirwwcg1JOoDLbGQ7Et2MTI0nDXAPpB2yS5fux6XFcrjVm3vsWW281brWl6FzKemMhdMQaT4z1BNR/ecm4q8cvY9N2bshY0sZRN7p/hwq0LK3xQAAAABJRU5ErkJggg==) no-repeat !important;
+
+  &.next { transform: rotate(180deg) translateY(20px); }
+  svg { display: none; }
+}
+
 /**
 * ----------------------------------------------------------------------------
 *  HEADER
@@ -196,7 +214,7 @@ nav a {
 */
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -308,7 +326,7 @@ header nav {
 * ----------------------------------------------------------------------------
 */
 
-.hero {
+.hero-section {
   position: relative;
 
   img {
@@ -348,7 +366,7 @@ header nav {
   }
 
   h2 {
-    color: $accent-color;
+    color: $title-primary-color;
     letter-spacing: em(2, $title-font-size);
   }
 
@@ -364,6 +382,138 @@ header nav {
     @include at ($min, $tablet) {
       min-width: em(160, $btn-font-size);
       min-height: em(60, $btn-font-size);
+    }
+  }
+}
+
+/**
+* ----------------------------------------------------------------------------
+*  SECTION: ARTICLES
+* ----------------------------------------------------------------------------
+*/
+
+.articles-section {
+  padding: 0 rem(20, $text-size);
+  margin-top: rem(50, $text-size);
+  margin-bottom: rem(100, $text-size);
+
+  @include at ($min, $lap) {
+    margin-top: rem(120, $text-size);
+    margin-bottom: rem(240, $text-size);
+  }
+
+  h2 {
+    margin-bottom: em(20, $title-font-size);
+    text-align: center;
+    color: $title-secondary-color;
+  }
+
+  h3 {
+    margin-bottom: rem(50, $text-size);
+    text-align: center;
+
+    @include at ($min, $lap) {
+      margin-bottom: rem(120, $text-size);
+    }
+  }
+}
+
+.articles-carousel {
+  max-width: rem(1020, $text-size);
+  margin: auto;
+
+  article {
+    position: relative;
+    transition: opacity .5s linear .25s;
+
+    @include at ($max, $tablet - 1) {
+      width: 100%;
+      margin-right: 10px;
+    }
+
+    @include at ($min, $tablet) {
+      width: 31%;
+      margin-right: 3.5%;
+    }
+
+    @include at ($min, $lap) {
+      width: calc(100% / 3 - 40px);
+      margin-right: 60px;
+    }
+
+    &:not(.is-selected) {
+      opacity: 0;
+    }
+  }
+
+  picture {
+    display: block;
+    max-width: rem(300, $text-size);
+    max-height: rem(360, $text-size);
+    margin: auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.article-info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: rem(10, $text-size) rem(10, $text-size) rem(40, $text-size);
+  text-align: center;
+  transition: $trans-bg;
+
+  @include at ($max, $tablet - 1) {
+    width: rem(300, $text-size);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include at ($min, $tablet) {
+    left: 0;
+    right: 0;
+  }
+
+  * { transition: transform $trans-duration; }
+
+  h4 { 
+    font-size: rem(22, $text-size);
+    margin-bottom: em(10, 22);
+  }
+
+  p { font-size: rem(17, $text-size); }
+
+  .articles-carousel article:hover & {
+    background-color: rgba(0,0,0,.6);
+
+    h4 { transform: scale(1.3); }
+    p { transform: scale(1.2); }
+  }
+}
+
+.articles-carousel {
+  .flickity-button {
+    @include at ($max, $desk - 1) {
+      display: none;
+    }
+
+    @include at ($min, $desk) {
+      &.previous { left: -85px; }
+      &.next { right: -85px; }
+    }
+  }
+
+  .flickity-page-dots {
+    @include at ($min, $desk) {
+      display: none;
     }
   }
 }

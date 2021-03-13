@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
   <title>Wildlife</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/flickity.min.css">
 </head>
 <body>
   <h1 hidden>Wildlife</h1>
@@ -45,7 +46,7 @@
   </header>
   
   <main>
-    <section class="hero">
+    <section class="hero-section">
       <picture>
         <source srcset="assets/images/hero.webp" type="image/webp">
         <img class="lazyload" src="#" data-src="assets/images/hero.jpg" alt="Fox">
@@ -55,12 +56,84 @@
         <div class="hero-block">
           <h2>Survival</h2>
           <p>What this means is that we exist to help protect our environment and do in numbers of ways. You can save the planet by donation.</p>
-          <button>Donate</button>
+          <button class="btn">Donate</button>
         </div>
       </div>
     </section>
-  </main>
 
+    <section class="container articles-section">
+      <h2>Latest articles</h2>
+      <h3>Breaking news from the wild</h3>
+
+      <div class="articles-carousel">
+        <article>
+          <picture>
+            <source srcset="assets/images/article-1.webp" type="image/webp">
+            <img class="lazyload" src="assets/images/article-1.jpg" alt="Deer">
+          </picture>
+          <a class="article-info" href="#">
+            <h4>Deer</h4>
+            <p>Naturalist investigation</p>
+          </a>
+        </article>
+
+        <article>
+          <picture>
+            <source srcset="assets/images/article-2.webp" type="image/webp">
+            <img class="lazyload" src="assets/images/article-2.jpg" alt="Squirrel">
+          </picture>
+          <a class="article-info" href="#">
+            <h4>Squirrel</h4>
+            <p>Kamikaze squirrels</p>
+          </a>
+        </article>
+
+        <article>
+          <picture>
+            <source srcset="assets/images/article-3.webp" type="image/webp">
+            <img class="lazyload" src="assets/images/article-3.jpg" alt="Bird">
+          </picture>
+          <a class="article-info" href="#">
+            <h4>Bird</h4>
+            <p>Birds Fight club</p>
+          </a>
+        </article>
+
+        <article>
+          <picture>
+            <source srcset="assets/images/article-4.webp" type="image/webp">
+            <img class="lazyload" src="assets/images/article-4.jpg" alt="Bird">
+          </picture>
+          <a class="article-info" href="#">
+            <h4>Coccinellidae</h4>
+            <p>Parasitism</p>
+          </a>
+        </article>
+
+        <article>
+          <picture>
+            <source srcset="assets/images/article-5.webp" type="image/webp">
+            <img class="lazyload" src="assets/images/article-5.jpg" alt="Bird">
+          </picture>
+          <a class="article-info" href="#">
+            <h4>Chipmunk</h4>
+            <p>Chipmunks Song club</p>
+          </a>
+        </article>
+
+        <article>
+          <picture>
+            <source srcset="assets/images/article-6.webp" type="image/webp">
+            <img class="lazyload" src="assets/images/article-6.jpg" alt="Bird">
+          </picture>
+          <a class="article-info" href="#">
+            <h4>Wolf</h4>
+            <p>Wolf is a bachelor</p>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
 
   <footer></footer>
   
@@ -68,5 +141,7 @@
 		window.lazySizesConfig = { loadMode: 1 }; // only load visible elements
 	</script>
 	<script src="assets/js/lazysizes.min.js" async></script>
+  <script src="assets/js/flickity.pkgd.min.js" defer></script>
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>

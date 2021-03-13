@@ -27,6 +27,7 @@
     "gulp-webp": "^4.0.1"
   },
   "dependencies": {
+    "flickity": "^2.2.2",
     "lazysizes": "^5.3.0"
   }
 }

@@ -17,6 +17,17 @@ const path ='wildlife/',
  */
 
 gulp.task('copy', () => {
+
+  // Flickity carousel
+
+  gulp.src('node_modules/flickity/dist/flickity.pkgd.min.js')
+  .pipe(gulp.dest(path_assets + 'js'));
+  
+  gulp.src('node_modules/flickity/dist/flickity.min.css')
+  .pipe(gulp.dest(path_assets + 'css'));
+
+  // Lazysizes
+
   return gulp.src('node_modules/lazysizes/lazysizes.min.js')
     .pipe(gulp.dest(path_assets + 'js'));
 });
