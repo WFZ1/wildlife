@@ -25,7 +25,99 @@ footer {
 
 main {
   background-color: $content-bg;
+  padding-bottom: 1px;
 }
+
+nav {
+  li {
+    margin: 0 em(10, $nav-item-font-size / 1.2);
+
+    @include at ($min, $tablet) {
+      margin: 0 em(30, $nav-item-font-size);
+    }
+  }
+  
+  a {
+    font-size: rem($nav-item-font-size / 1.2, $text-size);
+
+    @include at ($min, $tablet) {
+      font-size: rem($nav-item-font-size, $text-size);
+    }
+
+    &:hover { color: $nav-item-color-hover; }
+    &:active { color: $nav-item-color-pressed; }
+  }
+}
+
+/* BLOCKS ================================================================================ */
+
+%inline-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper,
+.container {
+  margin: auto;
+}
+
+.wrapper { max-width: rem($wrapper, $text-size); }
+.container { max-width: rem($container, $text-size); }
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.side-no-margin > * {
+  &:first-child { margin-left: 0; }
+  &:last-child { margin-right: 0; }
+}
+
+.side-no-margin-vertical > * {
+  &:first-child { margin-top: 0; }
+  &:last-child { margin-bottom: 0; }
+}
+
+.logo-block {
+  margin-right: rem(10, $text-size);
+
+  @include at ($min, $tablet) {
+    margin-right: rem(30, $text-size);
+  }
+
+  &:hover {
+    svg { fill: $accent-color; }
+    span { color: $accent-color; }
+  }
+
+  svg {
+    fill: #fff;
+    transition: $trans-fill;
+
+    @include at ($max, $tablet - 1) {
+      width: rem(50, $text-size);
+      height: rem(43.5, $text-size);
+    }
+
+    @include at ($min, $tablet) {
+      width: rem(69, $text-size);
+      height: rem(60, $text-size);
+    }
+
+    + span { margin-left: rem(15, $text-size); }
+  }
+
+  span {
+    font-size: rem(32, $text-size);
+    font-family: $font-extra;
+    text-transform: uppercase;
+    transition: $trans-color;
+  }
+}
+
+/* TITLES ================================================================================ */
 
 h1,
 h2,
@@ -46,6 +138,13 @@ h3 {
 .subtitle {
   font-size: rem($subtitle-font-size, $text-size);
   color: $subtitle-color;
+}
+
+/* BUTTON & LINK ================================================================================ */
+
+a {
+  color: $text-color;
+  transition: $trans-color;
 }
 
 .btn,
@@ -70,17 +169,6 @@ h3 {
   &:active { background-color: $btn-bg-pressed; }
 }
 
-a {
-  color: $text-color;
-  transition: $trans-color;
-}
-
-%inline-box {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .link {
   @extend %inline-box;
 
@@ -103,6 +191,8 @@ a {
   }
 }
 
+/* FIELDS ================================================================================ */
+
 input[type=email] {
   width: 100%;
   padding: em(15, $field-font-size);
@@ -115,34 +205,40 @@ input[type=email] {
   &::placeholder { color: $field-placeholder-color; }
 }
 
-nav a {
-  font-size: rem($nav-item-font-size / 1.2, $text-size);
+/* SOCIAL MEDIA ================================================================================ */
 
-  @include at ($min, $tablet) {
-    font-size: rem($nav-item-font-size, $text-size);
+.social-media  {
+  > * {
+    margin: 0 rem(10, $text-size);
+
+    @include at ($min, $tablet) {
+      margin: 0 rem(13.5, $text-size);
+    }
   }
-  
-  &:hover { color: $nav-item-color-hover; }
-  &:active { color: $nav-item-color-pressed; }
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .figure-circle { 
+    fill: $figure-circle-color;
+    transition: $trans-fill;
+  }
+
+  .figure-logo {
+    fill: $figure-logo-color;
+    transition: $trans-fill;
+  }
+
+  .icon:hover > .figure-logo { fill: $figure-logo-color-hover; }
+  .icon-facebook:hover > .figure-circle { fill: $facebook-color; }
+  .icon-instagram:hover > .figure-circle { fill: $instagram-color; }
+  .icon-pinterest:hover > .figure-circle { fill: $pinterest-color; }
+  .icon-telegram:hover > .figure-circle { fill: $telegram-color; }
 }
 
-.wrapper,
-.container {
-  margin: auto;
-}
-
-.wrapper { max-width: rem($wrapper, $text-size); }
-.container { max-width: rem($container, $text-size); }
-
-.row {
-  display: flex;
-  align-items: center;
-}
-
-.list li {
-  &:first-child { margin-left: 0; }
-  &:last-child { margin-right: 0; }
-}
+/* HIDDEN ================================================================================ */
 
 @include at($max, $phone) {
   .hidden-phone {
@@ -217,10 +313,10 @@ nav a {
 }
 
 /**
-* ----------------------------------------------------------------------------
-*  HEADER
-* ----------------------------------------------------------------------------
-*/
+ * ----------------------------------------------------------------------------
+ *  HEADER
+ * ----------------------------------------------------------------------------
+ */
 
 header {
   position: absolute;
@@ -228,80 +324,34 @@ header {
   left: 0;
   right: 0;
   z-index: 1;
-  padding: rem(2.5, $text-size) rem(10, $text-size) rem(10, $text-size);
+  padding: rem(10, $text-size);
 
   @include at ($min, $tablet) {
     padding: rem(20, $text-size);
   }
 
-  .row {
+  > .row {
     @include at ($max, $tablet - 1) {
-      display: flex;
       flex-wrap: wrap;
     }
   }
 }
 
-.logo-block {
-  margin-right: rem(10, $text-size);
-
-  @include at ($min, $tablet) {
-    margin-right: rem(30, $text-size);
-  }
-
-  &:hover {
-    svg {
-      fill: $accent-color;
-    }
-
-    span {
-      color: $accent-color;
-    }
-  }
-
-  svg {
-    fill: #fff;
-    transition: $trans-fill;
-
-    @include at ($max, $tablet - 1) {
-      width: rem(50, $text-size);
-    }
-
-    @include at ($min, $phone + 1) {
-      margin-right: rem(15, $text-size)
-    }
-  }
-
-  span {
-    font-size: rem(32, $text-size);
-    font-family: $font-extra;
-    text-transform: uppercase;
-    transition: $trans-color;
-  }
-}
-
 header nav {
-  margin-left: auto;
-
   @include at ($max, $tablet - 1) {
     order: 1;
     flex: 1 0 100%;
-    margin-top: rem(5, $text-size);
+    margin-top: rem(10, $text-size);
   }
 
   @include at ($min, $tablet) {
+    margin-left: auto;
     margin-right: rem(60, $text-size);
   }
 
   .row {
-    justify-content: center;
-  }
-
-  li {
-    margin: 0 em(10, $nav-item-font-size);
-
-    @include at ($min, $tablet) {
-      margin: 0 em(30, $nav-item-font-size);
+    @include at ($max, $tablet - 1) {
+      justify-content: center;
     }
   }
 }
@@ -330,10 +380,10 @@ header nav {
 }
 
 /**
-* ----------------------------------------------------------------------------
-*  SECTION: HERO
-* ----------------------------------------------------------------------------
-*/
+ * ----------------------------------------------------------------------------
+ *  SECTION: HERO
+ * ----------------------------------------------------------------------------
+ */
 
 .hero-section {
   position: relative;
@@ -396,10 +446,10 @@ header nav {
 }
 
 /**
-* ----------------------------------------------------------------------------
-*  SECTION: ARTICLES
-* ----------------------------------------------------------------------------
-*/
+ * ----------------------------------------------------------------------------
+ *  SECTION: ARTICLES
+ * ----------------------------------------------------------------------------
+ */
 
 .articles-section {
   padding: 0 rem(20, $text-size);
@@ -528,10 +578,10 @@ header nav {
 }
 
 /**
-* ----------------------------------------------------------------------------
-*  SECTION: ARTICLES
-* ----------------------------------------------------------------------------
-*/
+ * ----------------------------------------------------------------------------
+ *  SECTION: NEWSLETTER
+ * ----------------------------------------------------------------------------
+ */
 
 .newsletter {
   max-width: 700px;
@@ -565,7 +615,77 @@ header nav {
 
     @include at ($min, $tablet) {
       min-height: em(60, $btn-font-size);
-      flex-basis: em(120, $btn-font-size);
+      flex: 1 0 em(120, $btn-font-size);
+    }
+  }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ *  FOOTER
+ * ----------------------------------------------------------------------------
+ */
+
+footer {
+  position: relative;
+  height: rem(360, $text-size);;
+
+  > picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .container {
+    height: 100%;
+    padding: rem(10, $text-size);
+    justify-content: center;
+
+    @include at ($max, $tablet - 1) {
+      flex-direction: column;      
+    }
+
+    @include at ($min, $tablet) {
+      flex-wrap: wrap;
+      align-content: center;
+      padding: rem(20, $text-size);
+    }
+
+    @include at ($min, $lap) {
+      justify-content: space-between;
+      max-width: $container + 40px;
+    }
+    
+    > * {  
+      margin: rem(20, $text-size) 0;
+
+      @include at ($min, $tablet) {
+        margin-left: rem(20, $text-size);
+        margin-right: rem(20, $text-size);
+      } 
+    }
+  }
+
+  nav {
+    @include at ($min, $lap) {
+      flex: 1;
+    }
+
+    ul { justify-content: center; }
+
+    li {
+      @include at ($min, $lap) {
+        margin: 0 6.25%;
+      }
     }
   }
 }
