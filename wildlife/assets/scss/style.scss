@@ -31,21 +31,16 @@ main {
 nav {
   li {
     margin: 0 em(10, $nav-item-font-size / 1.2);
-
-    @include at ($min, $tablet) {
-      margin: 0 em(30, $nav-item-font-size);
-    }
-  }
-  
-  a {
     font-size: rem($nav-item-font-size / 1.2, $text-size);
 
     @include at ($min, $tablet) {
+      margin: 0 em(20, $nav-item-font-size);
       font-size: rem($nav-item-font-size, $text-size);
     }
 
-    &:hover { color: $nav-item-color-hover; }
-    &:active { color: $nav-item-color-pressed; }
+    @include at ($min, $lap) {
+      margin: 0 em(30, $nav-item-font-size);
+    }   
   }
 }
 
@@ -64,6 +59,11 @@ nav {
 
 .wrapper { max-width: rem($wrapper, $text-size); }
 .container { max-width: rem($container, $text-size); }
+
+.menu-item {
+  a:hover  { color: $nav-item-color-hover; }
+  a:active { color: $nav-item-color-pressed; }
+}
 
 .row {
   display: flex;
@@ -240,61 +240,61 @@ input[type=email] {
 
 /* HIDDEN ================================================================================ */
 
-@include at($max, $phone) {
+@include at($max, $phone - 1) {
   .hidden-phone {
     display: $hidden;
   }
 }
 
-@include at($min, $phone + 1) {
+@include at($min, $phone) {
   .hidden-phone-and-up {
     display: $hidden;
   }
 }
 
-@include at($max, $tablet) {
+@include at($max, $tablet - 1) {
   .hidden-tablet {
     display: $hidden;
   }
 }
 
-@include at($min, $tablet + 1) {
+@include at($min, $tablet) {
   .hidden-tablet-and-up {
     display: $hidden;
   }
 }
 
-@include at($max, $lap) {
+@include at($max, $lap - 1) {
   .hidden-lap {
     display: $hidden;
   }
 }
 
-@include at($min, $lap + 1) {
+@include at($min, $lap) {
   .hidden-lap-and-up {
     display: $hidden;
   }
 }
 
-@include at($max, $desk) {
+@include at($max, $desk - 1) {
   .hidden-desk {
     display: $hidden;
   }
 }
 
-@include at($min, $desk + 1) {
+@include at($min, $desk) {
   .hidden-desk-and-up {
     display: $hidden;
   }
 }
 
-@include at($max, $widescreen) {
+@include at($max, $widescreen - 1) {
   .hidden-wide {
     display: $hidden;
   }
 }
 
-@include at($min, $widescreen + 1) {
+@include at($min, $widescreen) {
   .hidden-wide-and-up {
     display: $hidden;
   }
@@ -339,14 +339,12 @@ header {
 
 header nav {
   @include at ($max, $tablet - 1) {
-    order: 1;
     flex: 1 0 100%;
     margin-top: rem(10, $text-size);
   }
 
   @include at ($min, $tablet) {
     margin-left: auto;
-    margin-right: rem(60, $text-size);
   }
 
   .row {
@@ -359,14 +357,8 @@ header nav {
 .header-action-list {
   @include at ($max, $tablet - 1) {
     margin-left: auto;
-  }
 
-  li {
-    margin: 0 rem(10, $text-size);
-    
-    @include at ($min, $tablet) {
-      margin: 0 rem(30, $text-size);
-    }
+    li { margin: 0 rem(10, $text-size); }
   }
 }
 
@@ -374,9 +366,7 @@ header nav {
   fill: #fff;
   transition: $trans-fill;
 
-  .search-link:hover & {
-    fill: $accent-color;
-  }
+  .search-link:hover & { fill: $accent-color; }
 }
 
 /**
@@ -421,12 +411,17 @@ header nav {
   }
 
   @include at ($min, $container + 40px) {
-    left: -20px;
+    top: rem(-15, $text-size);
+    left: rem(-20, $text-size);
   }
 
   h2 {
     color: $title-primary-color;
     letter-spacing: em(2, $title-font-size);
+
+    @include at ($min, $container + 40px) {
+      margin-bottom: rem(50, $text-size);
+    }
   }
 
   p {
@@ -457,12 +452,12 @@ header nav {
   margin-bottom: rem(100, $text-size);
 
   @include at ($min, $lap) {
-    margin-top: rem(120, $text-size);
+    margin-top: rem(125, $text-size);
     margin-bottom: rem(240, $text-size);
   }
 
   h2 {
-    margin-bottom: em(20, $title-font-size);
+    margin-bottom: em(25, $title-font-size);
     text-align: center;
     color: $title-secondary-color;
   }
@@ -545,7 +540,7 @@ header nav {
 
   h4 { 
     font-size: rem(22, $text-size);
-    margin-bottom: em(10, 22);
+    margin-bottom: em(15, 22);
   }
 
   p { font-size: rem(17, $text-size); }
@@ -594,12 +589,10 @@ header nav {
 
   h3 {
     text-align: center;
-    margin-bottom: em(60, $title-secondary-font-size);
+    margin-bottom: em(65, $title-secondary-font-size);
   }
 
-  form {
-    display: flex;
-  }
+  form { display: flex; }
 
   input[type=email] {
     border-right: 0;
