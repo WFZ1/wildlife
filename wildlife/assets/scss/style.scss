@@ -39,7 +39,7 @@ nav {
     }
 
     @include at ($min, $lap) {
-      margin: 0 em(30, $nav-item-font-size);
+      margin: 0 em(31, $nav-item-font-size);
     }   
   }
 }
@@ -208,7 +208,7 @@ input[type=email] {
 /* SOCIAL MEDIA ================================================================================ */
 
 .social-media  {
-  > * {
+  li {
     margin: 0 rem(10, $text-size);
 
     @include at ($min, $tablet) {
@@ -216,27 +216,20 @@ input[type=email] {
     }
   }
 
-  svg {
+  a {
+    display: block;
     width: 40px;
     height: 40px;
-  }
+    transition: transform $trans-duration;
 
-  .figure-circle { 
-    fill: $figure-circle-color;
-    transition: $trans-fill;
+    &:hover { transform: scale(1.2); }
   }
-
-  .figure-logo {
-    fill: $figure-logo-color;
-    transition: $trans-fill;
-  }
-
-  .icon:hover > .figure-logo { fill: $figure-logo-color-hover; }
-  .icon-facebook:hover > .figure-circle { fill: $facebook-color; }
-  .icon-instagram:hover > .figure-circle { fill: $instagram-color; }
-  .icon-pinterest:hover > .figure-circle { fill: $pinterest-color; }
-  .icon-telegram:hover > .figure-circle { fill: $telegram-color; }
 }
+
+.social-facebook.lazyloaded { background-image: url("assets/images/icon-facebook.svg"); }
+.social-instagram.lazyloaded { background-image: url("assets/images/icon-instagram.svg"); }
+.social-pinterest.lazyloaded { background-image: url("assets/images/icon-pinterest.svg"); }
+.social-telegram.lazyloaded { background-image: url("assets/images/icon-telegram.svg"); }
 
 /* HIDDEN ================================================================================ */
 
@@ -304,7 +297,7 @@ input[type=email] {
 
 .flickity-prev-next-button {
   padding: 0;
-  width: rem(26, $text-size) !important;
+  width: rem(32, $text-size) !important;
   height: rem(39, $text-size) !important;
   background: url(data:png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAnCAMAAAAmcKiPAAAASFBMVEUAAABgYGBwcHBgYGBoaGhgYGBlZWVkZGRmZmZlZWVlZWVkZGRmZmZkZGRmZmZmZmZlZWVkZGRmZmZnZ2dmZmZmZmZlZWVmZmYifFUVAAAAF3RSTlMAEBAgIDAwQF9gb39/gICPn6Cvv8/f71KNoBYAAACASURBVDjL5ZNJEoNACAAxQ4yaxXWm///TXDCVcsAHJFy7KJpNxAldy1Pc0Ay4rM0ATDXpCwDkirwwcg1JOoDLbGQ7Et2MTI0nDXAPpB2yS5fux6XFcrjVm3vsWW281brWl6FzKemMhdMQaT4z1BNR/ecm4q8cvY9N2bshY0sZRN7p/hwq0LK3xQAAAABJRU5ErkJggg==) no-repeat !important;
 
@@ -411,7 +404,7 @@ header nav {
   }
 
   @include at ($min, $container + 40px) {
-    top: rem(-15, $text-size);
+    top: rem(-18, $text-size);
     left: rem(-20, $text-size);
   }
 
@@ -420,14 +413,14 @@ header nav {
     letter-spacing: em(2, $title-font-size);
 
     @include at ($min, $container + 40px) {
-      margin-bottom: rem(50, $text-size);
+      margin-bottom: rem(55, $text-size);
     }
   }
 
   p {
     $el-font-size: 18;
 
-    margin-bottom: em(50, $el-font-size);
+    margin-bottom: em(47, $el-font-size);
     font-size: rem($el-font-size, $text-size);
     line-height: em(27, $el-font-size);
   }
@@ -560,8 +553,10 @@ header nav {
     }
 
     @include at ($min, $desk) {
-      &.previous { left: -85px; }
-      &.next { right: -85px; }
+      top: 50.9%;
+
+      &.previous { left: -87px; }
+      &.next { right: -87px; }
     }
   }
 
@@ -668,6 +663,12 @@ footer {
     }
   }
 
+  .logo-block {
+    @include at ($min, $lap) {
+      padding-right: 15px;
+    }
+  }
+
   nav {
     @include at ($min, $lap) {
       flex: 1;
@@ -677,7 +678,7 @@ footer {
 
     li {
       @include at ($min, $lap) {
-        margin: 0 6.25%;
+        margin: 0 6.85358%;
       }
     }
   }

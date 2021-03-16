@@ -177,7 +177,7 @@ nav li {
 
 @media screen and (min-width: 1024px) {
   nav li {
-    margin: 0 1.30435em;
+    margin: 0 1.34783em;
   }
 }
 
@@ -378,49 +378,41 @@ input[type=email]::placeholder {
 }
 
 /* SOCIAL MEDIA ================================================================================ */
-.social-media > * {
+.social-media li {
   margin: 0 0.625rem;
 }
 
 @media screen and (min-width: 768px) {
-  .social-media > * {
+  .social-media li {
     margin: 0 0.84375rem;
   }
 }
 
-.social-media svg {
+.social-media a {
+  display: block;
   width: 40px;
   height: 40px;
+  transition: transform 0.5s;
 }
 
-.social-media .figure-circle {
-  fill: #f7f7f7;
-  transition: fill 0.5s;
+.social-media a:hover {
+  transform: scale(1.2);
 }
 
-.social-media .figure-logo {
-  fill: #134731;
-  transition: fill 0.5s;
+.social-facebook.lazyloaded {
+  background-image: url("assets/images/icon-facebook.svg");
 }
 
-.social-media .icon:hover > .figure-logo {
-  fill: #fff;
+.social-instagram.lazyloaded {
+  background-image: url("assets/images/icon-instagram.svg");
 }
 
-.social-media .icon-facebook:hover > .figure-circle {
-  fill: #385898;
+.social-pinterest.lazyloaded {
+  background-image: url("assets/images/icon-pinterest.svg");
 }
 
-.social-media .icon-instagram:hover > .figure-circle {
-  fill: #e54562;
-}
-
-.social-media .icon-pinterest:hover > .figure-circle {
-  fill: #e60023;
-}
-
-.social-media .icon-telegram:hover > .figure-circle {
-  fill: #30a3e6;
+.social-telegram.lazyloaded {
+  background-image: url("assets/images/icon-telegram.svg");
 }
 
 /* HIDDEN ================================================================================ */
@@ -487,7 +479,7 @@ input[type=email]::placeholder {
 /* FLICKITY CAROUSEL ================================================================================ */
 .flickity-prev-next-button {
   padding: 0;
-  width: 1.625rem !important;
+  width: 2rem !important;
   height: 2.4375rem !important;
   background: url(data:png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAnCAMAAAAmcKiPAAAASFBMVEUAAABgYGBwcHBgYGBoaGhgYGBlZWVkZGRmZmZlZWVlZWVkZGRmZmZkZGRmZmZmZmZlZWVkZGRmZmZnZ2dmZmZmZmZlZWVmZmYifFUVAAAAF3RSTlMAEBAgIDAwQF9gb39/gICPn6Cvv8/f71KNoBYAAACASURBVDjL5ZNJEoNACAAxQ4yaxXWm///TXDCVcsAHJFy7KJpNxAldy1Pc0Ay4rM0ATDXpCwDkirwwcg1JOoDLbGQ7Et2MTI0nDXAPpB2yS5fux6XFcrjVm3vsWW281brWl6FzKemMhdMQaT4z1BNR/ecm4q8cvY9N2bshY0sZRN7p/hwq0LK3xQAAAABJRU5ErkJggg==) no-repeat !important;
 }
@@ -610,7 +602,7 @@ header {
 
 @media screen and (min-width: 1240px) {
   .hero-block {
-    top: -0.9375rem;
+    top: -1.125rem;
     left: -1.25rem;
   }
 }
@@ -622,12 +614,12 @@ header {
 
 @media screen and (min-width: 1240px) {
   .hero-block h2 {
-    margin-bottom: 3.125rem;
+    margin-bottom: 3.4375rem;
   }
 }
 
 .hero-block p {
-  margin-bottom: 2.77778em;
+  margin-bottom: 2.61111em;
   font-size: 1.125rem;
   line-height: 1.5em;
 }
@@ -781,11 +773,14 @@ header {
 }
 
 @media screen and (min-width: 1280px) {
+  .articles-carousel .flickity-button {
+    top: 50.9%;
+  }
   .articles-carousel .flickity-button.previous {
-    left: -85px;
+    left: -87px;
   }
   .articles-carousel .flickity-button.next {
-    right: -85px;
+    right: -87px;
   }
 }
 
@@ -907,6 +902,12 @@ footer .container > * {
 }
 
 @media screen and (min-width: 1024px) {
+  footer .logo-block {
+    padding-right: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   footer nav {
     flex: 1;
   }
@@ -918,6 +919,6 @@ footer nav ul {
 
 @media screen and (min-width: 1024px) {
   footer nav li {
-    margin: 0 6.25%;
+    margin: 0 6.85358%;
   }
 }
