@@ -568,7 +568,7 @@ header {
   width: 100%;
   object-fit: cover;
   min-height: 34.375rem;
-  max-height: 100vh;
+  max-height: 779px;
 }
 
 .hero-content {
